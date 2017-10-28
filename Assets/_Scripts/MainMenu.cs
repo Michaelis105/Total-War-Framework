@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour {
 
+	// Do not set these via Editor, use methods below
 	public GameObject curPanel;
 	public GameObject prevPanel;
 
