@@ -21,11 +21,11 @@ public class CameraController : MonoBehaviour {
 	public float mousePanBorderThickness = 10f;
 	public float cameraPanBorderThickness = 10f;
 
-	public float minXBound;
-	public float maxXBound;
+	public float minXBound = 0;
+	public float maxXBound = 4000;
 
-	public float minYBound;
-	public float maxYBound;
+	public float minYBound = 0;
+	public float maxYBound = 4000;
 
 	public float minHeight = 2f;
 	public float maxHeight = 300f;

@@ -210,8 +210,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panSensitivity: 2000
+  mousePanSensitivity: 20
   rotationalSensitivity: 100
+  mouseRotationalSensitivity: 200
   scrollSensitivity: 1000
+  mouseScrollSensitivity: 200
   mousePanBorderThickness: 10
   cameraPanBorderThickness: 100
   minXBound: 0
@@ -303,16 +306,17 @@ Transform:
   m_Father: {fileID: 1789119745}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &487252023
+--- !u!1 &590104217
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 487252026}
-  - component: {fileID: 487252025}
-  - component: {fileID: 487252024}
+  - component: {fileID: 590104218}
+  - component: {fileID: 590104220}
+  - component: {fileID: 590104219}
+  - component: {fileID: 590104221}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -320,25 +324,38 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!154 &487252024
+--- !u!4 &590104218
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 590104217}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 635754907}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!154 &590104219
 TerrainCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 487252023}
+  m_GameObject: {fileID: 590104217}
   m_Material: {fileID: 0}
   m_Enabled: 1
-  m_TerrainData: {fileID: 15600000, guid: 8d1ca2987dc28e347b065ae7fc5fb85d, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 92b75fc6c069c0247a81a4fee161b705, type: 2}
   m_EnableTreeColliders: 1
---- !u!218 &487252025
+--- !u!218 &590104220
 Terrain:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 487252023}
+  m_GameObject: {fileID: 590104217}
   m_Enabled: 1
   serializedVersion: 3
-  m_TerrainData: {fileID: 15600000, guid: 8d1ca2987dc28e347b065ae7fc5fb85d, type: 2}
+  m_TerrainData: {fileID: 15600000, guid: 92b75fc6c069c0247a81a4fee161b705, type: 2}
   m_TreeDistance: 2000
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
@@ -361,19 +378,23 @@ Terrain:
   m_BakeLightProbesForTrees: 1
   m_ScaleInLightmap: 0.0512
   m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
---- !u!4 &487252026
-Transform:
+--- !u!114 &590104221
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 487252023}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 635754907}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 590104217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9511bb39a7bdc9499cf937bffc8ce7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  length: 4000
+  width: 4000
+  height: 300
+  scale: 4
+  offsetX: 100
+  offsetY: 100
 --- !u!1 &635754906
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,6 +403,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 635754907}
+  - component: {fileID: 635754908}
   m_Layer: 0
   m_Name: GameObjectBattleWorld
   m_TagString: Untagged
@@ -399,11 +421,22 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 487252026}
   - {fileID: 1789119745}
+  - {fileID: 590104218}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &635754908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 635754906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd4fb69fdc26b814dbbc17b4ae492fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1676454413
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,5 +529,5 @@ Transform:
   m_Children:
   - {fileID: 478616468}
   m_Father: {fileID: 635754907}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
